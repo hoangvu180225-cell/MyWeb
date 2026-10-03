@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cổng Bài Nộp & Trang Cá Nhân — Lập Trình Web</title>
-    <!-- Google Fonts -->
+    <title>Phan Hoàng Vũ — MSSV 20235462 | Cổng Bài Nộp Lập Trình Web</title>
+    
+    <!-- Google Fonts: Volkhov for Jadoo-style serif headers, Poppins & Plus Jakarta Sans for UI -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Volkhov:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
-    <!-- Animated Background Glows -->
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-    <div class="glow-orb orb-3"></div>
+<body class="light-theme">
+
+    <!-- Decorative Jadoo-style Ambient Blobs -->
+    <div class="blob-top-right"></div>
+    <div class="blob-center-left"></div>
 
     <!-- Navigation Bar -->
     <header class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">⚡</span>
-                <span class="logo-text">Student<span class="gradient-text">Portal</span></span>
-            </div>
+            <a href="#" class="logo">
+                <span class="logo-main">Vũ<span class="logo-dot">.</span></span>
+            </a>
 
-            <nav class="nav-menu">
-                <a href="#profile" class="nav-link active">Hồ sơ</a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link active">Trang chủ</a>
                 <a href="#assignments" class="nav-link">Bài nộp</a>
-                <a href="#skills" class="nav-link">Kỹ năng</a>
-                <a href="#notes" class="nav-link">Ghi chú</a>
+                <a href="#info" class="nav-link">Thông tin SV</a>
             </nav>
 
             <div class="nav-actions">
-                <button id="themeToggle" class="btn-icon" title="Đổi giao diện Sáng / Tối">
+                <button id="themeToggle" class="btn-icon" title="Chuyển chế độ Sáng / Tối" aria-label="Toggle Theme">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -50,299 +50,230 @@
                 </button>
                 <a href="#assignments" class="btn-primary">
                     <span>Xem bài nộp</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <!-- Hero & Profile Section -->
-        <section id="profile" class="profile-section">
-            <div class="profile-card glass-card">
-                <div class="profile-header">
-                    <div class="avatar-wrapper">
-                        <div class="avatar-glow"></div>
-                        <div class="avatar" id="userAvatar">
-                            <span class="avatar-letter">SV</span>
-                        </div>
-                        <div class="status-badge online" title="Đang trực tuyến"></div>
+    <main class="main-wrapper">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span>BÀI TẬP LẬP TRÌNH WEB &bull; 2026.1</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Phan Hoàng <span class="highlight-wrapper">Vũ
+                        <svg class="brush-underline" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 14C50 4 150 2 247 11" stroke="#DF6951" stroke-width="6" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                    <br>MSSV 20235462
+                </h1>
+
+                <p class="hero-desc">
+                    Trang tổng hợp bài tập thực hành & sửa lỗi CSS (Box Model, Flexbox, Grid, Positioning). Nhấp vào từng bài để xem trực tiếp hoặc mở trang riêng biệt.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a href="#assignments" class="btn-jadoo-primary">
+                        <span>Khám phá bài nộp</span>
+                    </a>
+                    <button class="btn-jadoo-demo" onclick="openPreviewModal('./Bai tap 1 Tim va sua loi CSS/index.html', 'Bài Tập 1: Tìm và Sửa Lỗi CSS')">
+                        <span class="play-btn-circle">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                        </span>
+                        <span class="play-btn-label">Xem nhanh Bài 1</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card-main">
+                    <div class="card-glow-bg"></div>
+                    <div class="student-badge-top">
+                        <span class="dot-status"></span>
+                        <span>Đã hoàn thành 2 bài nộp</span>
                     </div>
-                    <div class="profile-info">
-                        <div class="badge-role">Sinh viên Lập trình Web</div>
-                        <h1 class="student-name" id="studentName">Nguyễn Văn A</h1>
-                        <p class="student-desc">
-                            Học phần: <strong>Phát triển Ứng dụng Web (2026.1)</strong> &bull; Khoa Công nghệ Thông tin
-                        </p>
-                        
-                        <div class="student-meta-tags">
-                            <span class="meta-tag">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                                Mã SV: <strong id="studentIdText">20260001</strong>
-                            </span>
-                            <span class="meta-tag">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                Lớp: <strong id="studentClassText">CNTT-01</strong>
-                            </span>
-                            <span class="meta-tag">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                Cập nhật: <strong>Bài tập 3 (CSS Debugging)</strong>
-                            </span>
+                    
+                    <div class="student-avatar-large">
+                        <div class="avatar-circle">
+                            <span>VŨ</span>
+                        </div>
+                    </div>
+
+                    <div class="student-details">
+                        <h3>Phan Hoàng Vũ</h3>
+                        <p class="student-id-badge">MSSV: <strong>20235462</strong></p>
+                        <p class="student-sub">Lập trình Web &bull; Học kỳ 2026.1</p>
+                    </div>
+
+                    <!-- Floating Mini Card (Jadoo Travel Style) -->
+                    <div class="floating-mini-card">
+                        <div class="mini-icon">🚀</div>
+                        <div class="mini-info">
+                            <span class="mini-title">Tiến độ bài tập</span>
+                            <span class="mini-status">100% Hoàn thành</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Stats Counter -->
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-number gradient-text" id="completedCount">02</div>
-                        <div class="stat-label">Bài tập đã hoàn thành</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number green-text">100%</div>
-                        <div class="stat-label">Tiến độ bài nộp</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number purple-text">HTML / CSS</div>
-                        <div class="stat-label">Công nghệ cốt lõi</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number orange-text">Ready</div>
-                        <div class="stat-label">Trạng thái sẵn sàng nộp</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Search and Filter Bar -->
-        <section class="filter-section">
-            <div class="search-box">
-                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" id="searchInput" placeholder="Tìm kiếm bài tập (Ví dụ: Bài tập 1, Sửa lỗi CSS, Flexbox...)" autocomplete="off">
-            </div>
-
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Tất cả bài nộp</button>
-                <button class="filter-btn" data-filter="bai3">Bài 3 (CSS)</button>
-                <button class="filter-btn" data-filter="completed">Đã sửa lỗi</button>
             </div>
         </section>
 
         <!-- Assignments Section -->
         <section id="assignments" class="assignments-section">
-            <div class="section-title-wrap">
-                <div>
-                    <h2 class="section-title">Danh Sách Bài Nộp & Dự Án</h2>
-                    <p class="section-subtitle">Bấm nút để mở trực tiếp trang bài làm hoặc xem bản demo tương tác</p>
-                </div>
-                <div class="badge-count" id="itemCountBadge">2 Bài nộp</div>
+            <div class="section-header text-center">
+                <span class="sub-heading">DANH SÁCH BÀI TẬP</span>
+                <h2 class="main-heading">Các Bài Đã Hoàn Thành</h2>
             </div>
 
-            <div class="assignment-grid" id="assignmentGrid">
-                
-                <!-- Card 1: Bài tập 1 -->
-                <div class="assignment-card glass-card" data-category="bai3 completed" data-title="bài tập 1 tìm và sửa lỗi css blakletterpress thiệp tết 2026">
-                    <div class="card-header-bar">
-                        <span class="card-badge bg-blue">Bài 3 &bull; Phần 1</span>
-                        <span class="card-status verified">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Đã sửa hoàn tất
-                        </span>
+            <div class="assignment-cards-container">
+                <!-- Assignment 1 -->
+                <div class="assignment-card">
+                    <div class="card-badge-header">
+                        <span class="pill-badge">Phần 1 &bull; Box Model & Position</span>
+                        <span class="status-pill done">Đã hoàn thành</span>
                     </div>
 
-                    <div class="card-preview">
-                        <div class="preview-mockup">
-                            <div class="mockup-header">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                                <span class="mockup-url">Bai tap 1 Tim va sua loi CSS/trang.html</span>
-                            </div>
-                            <div class="mockup-thumbnail thumb-1">
-                                <div class="thumb-overlay">
-                                    <span class="thumb-title">Khuyến mãi thiệp Tết 2026</span>
-                                    <span class="thumb-sub">Blakletterpress &bull; Header Hero & Card Grid</span>
-                                </div>
-                            </div>
+                    <div class="card-visual-box">
+                        <div class="visual-inner">
+                            <div class="visual-tag">Blakletterpress</div>
+                            <h4>Thiệp Tết 2026</h4>
+                            <p>Sửa lỗi Header Sticky, Hero Overlay & Card Grid</p>
                         </div>
                     </div>
 
-                    <div class="card-content">
-                        <h3 class="card-title">Bài Tập 1: Sửa Lỗi CSS Layout & Typography</h3>
-                        <p class="card-desc">
-                            Sửa các lỗi CSS cơ bản bao gồm căn chỉnh khối `site-header`, căn chỉnh `hero-overlay`, hiển thị danh sách sản phẩm dạng lưới `card-list`, và badge giảm giá.
+                    <div class="card-body">
+                        <h3 class="card-title">Bài Tập 1: Tìm và Sửa Lỗi CSS</h3>
+                        <p class="card-text">
+                            Khắc phục các lỗi căn chỉnh CSS cho thanh điều hướng dính `site-header`, lớp phủ ảnh `hero-overlay`, và dàn 3 thẻ sản phẩm dạng lưới kèm nhãn `-20%`.
                         </p>
-
-                        <div class="card-tags">
-                            <span class="tag">HTML5</span>
-                            <span class="tag">CSS Grid / Flexbox</span>
-                            <span class="tag">Hero Overlay</span>
-                            <span class="tag">Fix Bug</span>
-                        </div>
                     </div>
 
-                    <div class="card-footer">
-                        <a href="./Bai tap 1 Tim va sua loi CSS/trang.html" target="_blank" class="btn-action btn-open">
+                    <div class="card-footer-actions">
+                        <a href="./Bai%20tap%201%20Tim%20va%20sua%20loi%20CSS/index.html" target="_blank" class="btn-card-open">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                 <polyline points="15 3 21 3 21 9"></polyline>
                                 <line x1="10" y1="14" x2="21" y2="3"></line>
                             </svg>
-                            <span>Mở bài tập 1</span>
+                            <span>Mở trang bài 1</span>
                         </a>
-                        <button class="btn-action btn-preview" onclick="openPreviewModal('./Bai tap 1 Tim va sua loi CSS/trang.html', 'Bài Tập 1: Tìm và Sửa Lỗi CSS')">
+                        <button class="btn-card-preview" onclick="openPreviewModal('./Bai tap 1 Tim va sua loi CSS/index.html', 'Bài Tập 1: Sửa Lỗi CSS Layout')">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
                             </svg>
                             <span>Xem trước</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Card 2: Bài tập 2 -->
-                <div class="assignment-card glass-card" data-category="bai3 completed" data-title="bài tập 2 tìm và sửa lỗi css blakletterpress layout responsive">
-                    <div class="card-header-bar">
-                        <span class="card-badge bg-purple">Bài 3 &bull; Phần 2</span>
-                        <span class="card-status verified">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Đã sửa hoàn tất
-                        </span>
+                <!-- Assignment 2 -->
+                <div class="assignment-card">
+                    <div class="card-badge-header">
+                        <span class="pill-badge pill-purple">Phần 2 &bull; Container & Grid</span>
+                        <span class="status-pill done">Đã hoàn thành</span>
                     </div>
 
-                    <div class="card-preview">
-                        <div class="preview-mockup">
-                            <div class="mockup-header">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                                <span class="mockup-url">Bai tap 2 Tim va sua loi CSS/trang.html</span>
-                            </div>
-                            <div class="mockup-thumbnail thumb-2">
-                                <div class="thumb-overlay">
-                                    <span class="thumb-title">Khuyến mãi thiệp Tết (Bản 2)</span>
-                                    <span class="thumb-sub">Container Layout & Compact Grid Cards</span>
-                                </div>
-                            </div>
+                    <div class="card-visual-box visual-purple">
+                        <div class="visual-inner">
+                            <div class="visual-tag">Blakletterpress 2</div>
+                            <h4>Thiệp Tết 2026 (Bản 2)</h4>
+                            <p>Sửa lỗi Container, Box-sizing & Positioning</p>
                         </div>
                     </div>
 
-                    <div class="card-content">
-                        <h3 class="card-title">Bài Tập 2: Tinh Chỉnh Layout & CSS Container</h3>
-                        <p class="card-desc">
-                            Sửa các lỗi CSS liên quan đến cấu trúc `.page` bọc ngoài, khoảng cách `header-inner`, căn vị trí tuyệt đối (absolute positioning) và tỉ lệ kích thước ảnh sản phẩm.
+                    <div class="card-body">
+                        <h3 class="card-title">Bài Tập 2: Tìm và Sửa Lỗi CSS (Bản 2)</h3>
+                        <p class="card-text">
+                            Sửa các lỗi bố cục bọc ngoài `.page`, khoảng cách `header-inner`, căn vị trí tương đối/tuyệt đối cho các thẻ sản phẩm và nút cuộn trang cố định.
                         </p>
-
-                        <div class="card-tags">
-                            <span class="tag">HTML5</span>
-                            <span class="tag">CSS Box-sizing</span>
-                            <span class="tag">Responsive</span>
-                            <span class="tag">Product Cards</span>
-                        </div>
                     </div>
 
-                    <div class="card-footer">
-                        <a href="./Bai tap 2 Tim va sua loi CSS/trang.html" target="_blank" class="btn-action btn-open">
+                    <div class="card-footer-actions">
+                        <a href="./Bai%20tap%202%20Tim%20va%20sua%20loi%20CSS/index.html" target="_blank" class="btn-card-open">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                 <polyline points="15 3 21 3 21 9"></polyline>
                                 <line x1="10" y1="14" x2="21" y2="3"></line>
                             </svg>
-                            <span>Mở bài tập 2</span>
+                            <span>Mở trang bài 2</span>
                         </a>
-                        <button class="btn-action btn-preview" onclick="openPreviewModal('./Bai tap 2 Tim va sua loi CSS/trang.html', 'Bài Tập 2: Tìm và Sửa Lỗi CSS')">
+                        <button class="btn-card-preview" onclick="openPreviewModal('./Bai tap 2 Tim va sua loi CSS/index.html', 'Bài Tập 2: Sửa Lỗi CSS Layout (Bản 2)')">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
                             </svg>
                             <span>Xem trước</span>
                         </button>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Technical Skills Section -->
-        <section id="skills" class="skills-section">
-            <div class="glass-card skills-card">
-                <h2 class="section-title">Kỹ Năng & Kiến Thức Đạt Được</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-icon-box">🎨</div>
-                        <div class="skill-details">
-                            <h4>CSS Layout & Flexbox / Grid</h4>
-                            <p>Căn chỉnh khối, dàn trang linh hoạt, xử lý header cố định và navigation responsive.</p>
+        <!-- Minimal Student Information Card -->
+        <section id="info" class="info-section">
+            <div class="info-banner-card">
+                <div class="info-text">
+                    <h3>Thông Tin Sinh Viên</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Họ và tên:</span>
+                            <span class="info-val">Phan Hoàng Vũ</span>
                         </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-box">🔍</div>
-                        <div class="skill-details">
-                            <h4>Debugging & Fix CSS Bug</h4>
-                            <p>Phát hiện xung đột CSS selector, ghi đè thuộc tính, lỗi tràn margin/padding và overflow.</p>
+                        <div class="info-item">
+                            <span class="info-label">Mã số sinh viên:</span>
+                            <span class="info-val highlight">20235462</span>
                         </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-box">📐</div>
-                        <div class="skill-details">
-                            <h4>Box Model & Positioning</h4>
-                            <p>Hiểu sâu về static, relative, absolute, fixed và z-index trong phân tầng giao diện.</p>
+                        <div class="info-item">
+                            <span class="info-label">Học phần:</span>
+                            <span class="info-val">Lập trình Web (2026.1)</span>
                         </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-box">📱</div>
-                        <div class="skill-details">
-                            <h4>Responsive & Aesthetics</h4>
-                            <p>Tối ưu hiển thị đa thiết bị với Typography hiện đại, hiệu ứng kính và chuyển động mượt.</p>
+                        <div class="info-item">
+                            <span class="info-label">Trạng thái bài tập:</span>
+                            <span class="info-val text-green">2/2 Bài hoàn thành</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Quick Edit Info Modal / Note -->
-        <section id="notes" class="notes-section">
-            <div class="glass-card notes-card">
-                <div class="notes-header">
-                    <h3>💡 Tuỳ chỉnh thông tin cá nhân</h3>
-                    <button class="btn-secondary" id="btnEditInfo">Chỉnh sửa tên / MSV</button>
+                <div class="info-action">
+                    <a href="#hero" class="btn-jadoo-outline">Lên đầu trang &uarr;</a>
                 </div>
-                <p class="notes-text">
-                    Trang này lưu thông tin trực tiếp vào trình duyệt (LocalStorage). Bạn có thể bấm nút trên để cập nhật Họ tên, Mã sinh viên và Lớp của mình nhanh chóng.
-                </p>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 Cổng nộp bài Lập trình Web &bull; Phát triển với HTML5, CSS3 & JavaScript</p>
-            <p class="footer-links">
-                <a href="#profile">Lên đầu trang &uarr;</a>
-            </p>
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Phan Hoàng Vũ &bull; MSSV: 20235462 &bull; Lập trình Web</p>
         </div>
     </footer>
 
     <!-- Iframe Live Preview Modal -->
     <div id="previewModal" class="modal-backdrop">
-        <div class="modal-container glass-card">
+        <div class="modal-container">
             <div class="modal-header">
                 <div class="modal-title-wrap">
                     <span class="modal-dot"></span>
                     <h3 id="modalTitle">Xem trước bài làm</h3>
                 </div>
                 <div class="modal-controls">
-                    <button class="modal-btn" id="btnModalOpenTab" title="Mở sang tab mới">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                    </button>
-                    <button class="modal-btn modal-close" onclick="closePreviewModal()" title="Đóng preview">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <a id="btnModalOpenTab" href="#" target="_blank" class="modal-btn" title="Mở sang tab mới">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                    <button class="modal-btn modal-close" onclick="closePreviewModal()" title="Đóng">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -356,39 +287,7 @@
         </div>
     </div>
 
-    <!-- Edit Info Modal -->
-    <div id="editModal" class="modal-backdrop">
-        <div class="modal-container glass-card modal-small">
-            <div class="modal-header">
-                <h3>Cập nhật thông tin cá nhân</h3>
-                <button class="modal-btn modal-close" onclick="closeEditModal()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </div>
-            <form id="editInfoForm" class="edit-form">
-                <div class="form-group">
-                    <label for="inputName">Họ và Tên</label>
-                    <input type="text" id="inputName" required placeholder="Ví dụ: Nguyễn Văn A">
-                </div>
-                <div class="form-group">
-                    <label for="inputId">Mã Sinh Viên</label>
-                    <input type="text" id="inputId" required placeholder="Ví dụ: 20260001">
-                </div>
-                <div class="form-group">
-                    <label for="inputClass">Lớp Học Phần</label>
-                    <input type="text" id="inputClass" required placeholder="Ví dụ: CNTT-01 (2026.1)">
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" onclick="closeEditModal()">Hủy</button>
-                    <button type="submit" class="btn-primary">Lưu thông tin</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div id="toastContainer" class="toast-container"></div>
-
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
