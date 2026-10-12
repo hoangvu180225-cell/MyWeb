@@ -542,9 +542,9 @@ body.dark-theme .btn-primary:hover {
 
 .assignment-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 36px;
-    max-width: 960px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    max-width: 1140px;
     margin: 0 auto;
 }
 
@@ -586,6 +586,11 @@ body.dark-theme .btn-primary:hover {
     color: var(--accent-purple);
 }
 
+.pill-badge.pill-emerald {
+    background: rgba(0, 176, 116, 0.12);
+    color: var(--accent-green);
+}
+
 .status-pill {
     font-size: 0.8rem;
     font-weight: 600;
@@ -623,6 +628,15 @@ body.dark-theme .card-visual-box.visual-purple {
     background: linear-gradient(135deg, rgba(123, 97, 255, 0.15) 0%, rgba(79, 70, 229, 0.15) 100%);
 }
 
+.card-visual-box.visual-emerald {
+    background: linear-gradient(135deg, #E6F8F0 0%, #D1F2E2 100%);
+    border-color: rgba(0, 176, 116, 0.2);
+}
+
+body.dark-theme .card-visual-box.visual-emerald {
+    background: linear-gradient(135deg, rgba(0, 176, 116, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
+}
+
 .visual-inner .visual-tag {
     font-size: 0.75rem;
     font-weight: 700;
@@ -634,6 +648,10 @@ body.dark-theme .card-visual-box.visual-purple {
 
 .visual-purple .visual-tag {
     color: var(--accent-purple);
+}
+
+.visual-emerald .visual-tag {
+    color: var(--accent-green);
 }
 
 .visual-inner h4 {

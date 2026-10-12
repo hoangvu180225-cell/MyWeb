@@ -1,0 +1,685 @@
+/* ==========================================================================
+   Blakletterpress - Xưởng In Thủ Công Hà Nội
+   Stylesheet: style.css (Responsive & Modern Artisanal Theme)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Google Fonts & CSS Custom Properties (Design Tokens)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+	/* Bảng màu chủ đạo: Craft Letterpress & Warm Paper */
+	--color-bg: #f8f6f0;
+	--color-surface: #ffffff;
+	--color-surface-soft: #f2eee3;
+	--color-surface-hover: #faf8f5;
+	--color-border: #e3ded2;
+	--color-border-dark: #c8c0b0;
+
+	/* Màu mực in truyền thống (Ink & Terracotta) */
+	--color-ink-primary: #1e242b;
+	--color-ink-secondary: #4a535e;
+	--color-ink-muted: #747f8d;
+	--color-accent: #b25838;         /* Terracotta / Men gốm đỏ */
+	--color-accent-hover: #964528;
+	--color-accent-light: #faede8;
+	--color-forest: #2d4a3e;         /* Xanh rừng già thủ công */
+	--color-gold: #c59b27;
+
+	/* Footer theme */
+	--color-footer-bg: #181d22;
+	--color-footer-text: #d8dde3;
+	--color-footer-muted: #8d97a5;
+
+	/* Font chữ */
+	--font-heading: 'Cinzel', 'Playfair Display', Georgia, serif;
+	--font-subheading: 'Playfair Display', Georgia, serif;
+	--font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+	/* Hiệu ứng bóng đổ (Box Shadows) */
+	--shadow-subtle: 0 2px 6px rgba(30, 36, 43, 0.04);
+	--shadow-card: 0 4px 18px rgba(30, 36, 43, 0.06), 0 1px 3px rgba(30, 36, 43, 0.04);
+	--shadow-hover: 0 12px 30px rgba(30, 36, 43, 0.12), 0 3px 6px rgba(30, 36, 43, 0.06);
+
+	/* Bo góc & Chuyển động */
+	--radius-sm: 6px;
+	--radius-md: 12px;
+	--radius-lg: 18px;
+	--transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+	--container-max: 1180px;
+}
+
+/* --------------------------------------------------------------------------
+   1. Reset & Thiết lập cơ bản (Base Styles)
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+	scroll-padding-top: 100px;
+}
+
+body {
+	font-family: var(--font-body);
+	color: var(--color-ink-primary);
+	background-color: var(--color-bg);
+	background-image: 
+		radial-gradient(var(--color-border) 0.75px, transparent 0.75px),
+		linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(248, 246, 240, 0.95));
+	background-size: 24px 24px, 100% 100%;
+	line-height: 1.7;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: var(--transition);
+}
+
+a:hover {
+	color: var(--color-accent-hover);
+}
+
+ul {
+	list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Header & Navigation (.site-header)
+   -------------------------------------------------------------------------- */
+.site-header {
+	background: rgba(255, 255, 255, 0.92);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border-bottom: 1px solid var(--color-border);
+	padding: 1.75rem 1.5rem 1.25rem;
+	text-align: center;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.site-header .site-name {
+	font-family: var(--font-heading);
+	font-size: clamp(1.8rem, 4vw, 2.6rem);
+	font-weight: 800;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--color-ink-primary);
+	display: inline-block;
+	position: relative;
+	padding-bottom: 0.25rem;
+}
+
+.site-header .site-name::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 48px;
+	height: 2px;
+	background: var(--color-accent);
+}
+
+.site-header .tagline {
+	font-family: var(--font-subheading);
+	font-style: italic;
+	font-size: 1.05rem;
+	color: var(--color-ink-secondary);
+	margin-top: 0.35rem;
+	margin-bottom: 1.25rem;
+	letter-spacing: 0.05em;
+}
+
+.main-nav {
+	display: flex;
+	justify-content: center;
+}
+
+.main-nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem 1.75rem;
+	padding: 0.5rem 1.25rem;
+	background: var(--color-surface-soft);
+	border-radius: 999px;
+	border: 1px solid var(--color-border);
+}
+
+.main-nav a {
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: var(--color-ink-secondary);
+	letter-spacing: 0.04em;
+	padding: 0.35rem 0.6rem;
+	border-radius: 999px;
+	display: inline-block;
+}
+
+.main-nav a:hover {
+	color: var(--color-accent);
+	background: rgba(255, 255, 255, 0.85);
+	transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   3. Main Content Layout (.layout)
+   -------------------------------------------------------------------------- */
+.layout {
+	width: 100%;
+	max-width: var(--container-max);
+	margin: 2.5rem auto 4rem;
+	padding: 0 1.5rem;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 320px;
+	gap: 2.75rem;
+	align-items: start;
+	flex: 1;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 3.5rem;
+}
+
+/* Tiêu đề chung cho các Section */
+main h1, main h2, .sidebar h2 {
+	font-family: var(--font-subheading);
+	color: var(--color-ink-primary);
+	letter-spacing: -0.01em;
+	position: relative;
+}
+
+main h1 {
+	font-size: clamp(2rem, 3.5vw, 2.6rem);
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	line-height: 1.25;
+}
+
+main h2, .sidebar h2 {
+	font-size: 1.75rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	padding-bottom: 0.6rem;
+	border-bottom: 2px solid var(--color-border);
+}
+
+main h2::after, .sidebar h2::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 60px;
+	height: 2px;
+	background: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   4. Phần Giới thiệu (#gioi-thieu)
+   -------------------------------------------------------------------------- */
+#gioi-thieu {
+	background: var(--color-surface);
+	padding: 2.25rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border);
+	box-shadow: var(--shadow-card);
+}
+
+#gioi-thieu figure {
+	margin: 0 0 1.75rem 0;
+	border-radius: var(--radius-sm);
+	overflow: hidden;
+	background: var(--color-surface-soft);
+	border: 1px solid var(--color-border);
+}
+
+#gioi-thieu figure img {
+	width: 100%;
+	max-height: 440px;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+#gioi-thieu figure:hover img {
+	transform: scale(1.02);
+}
+
+#gioi-thieu figcaption {
+	padding: 0.75rem 1rem;
+	font-size: 0.9rem;
+	font-style: italic;
+	color: var(--color-ink-muted);
+	text-align: center;
+	background: var(--color-surface-soft);
+	border-top: 1px solid var(--color-border);
+}
+
+#gioi-thieu p {
+	font-size: 1.08rem;
+	color: var(--color-ink-secondary);
+	margin-bottom: 1rem;
+	line-height: 1.8;
+}
+
+#gioi-thieu p:first-of-type::first-letter {
+	font-family: var(--font-heading);
+	font-size: 3.2rem;
+	float: left;
+	line-height: 0.85;
+	margin: 0.15rem 0.75rem 0 0;
+	color: var(--color-accent);
+	font-weight: 700;
+}
+
+#gioi-thieu p strong {
+	color: var(--color-ink-primary);
+	font-weight: 600;
+	background: linear-gradient(180deg, transparent 65%, var(--color-accent-light) 65%);
+	padding: 0 2px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Phần Giá trị cốt lõi (#gia-tri)
+   -------------------------------------------------------------------------- */
+.value-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+	gap: 1.5rem;
+}
+
+.value-card {
+	background: var(--color-surface);
+	padding: 2rem 1.5rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border);
+	box-shadow: var(--shadow-card);
+	transition: var(--transition);
+	position: relative;
+	overflow: hidden;
+}
+
+.value-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
+	opacity: 0.85;
+	transition: var(--transition);
+}
+
+.value-card:hover {
+	transform: translateY(-5px);
+	box-shadow: var(--shadow-hover);
+	border-color: var(--color-border-dark);
+}
+
+.value-card:hover::before {
+	height: 6px;
+}
+
+.value-card h3 {
+	font-family: var(--font-subheading);
+	font-size: 1.35rem;
+	color: var(--color-ink-primary);
+	margin-bottom: 0.75rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.value-card p {
+	font-size: 0.95rem;
+	color: var(--color-ink-secondary);
+	line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   6. Phần Đội ngũ (#doi-ngu)
+   -------------------------------------------------------------------------- */
+.team-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1.75rem;
+}
+
+.member {
+	background: var(--color-surface);
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border);
+	box-shadow: var(--shadow-card);
+	overflow: hidden;
+	text-align: center;
+	transition: var(--transition);
+	display: flex;
+	flex-direction: column;
+}
+
+.member:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--shadow-hover);
+	border-color: var(--color-accent);
+}
+
+.member img {
+	width: 100%;
+	aspect-ratio: 4 / 4.5;
+	object-fit: cover;
+	filter: saturate(0.92);
+	transition: var(--transition);
+}
+
+.member:hover img {
+	filter: saturate(1.08);
+	transform: scale(1.03);
+}
+
+.member h3 {
+	font-family: var(--font-subheading);
+	font-size: 1.25rem;
+	color: var(--color-ink-primary);
+	margin: 1.25rem 1rem 0.35rem;
+}
+
+.member p {
+	font-size: 0.88rem;
+	color: var(--color-ink-muted);
+	font-weight: 500;
+	margin: 0 1rem 1.5rem;
+	line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   7. Phần Liên hệ & Biểu mẫu (#lien-he, .contact-form)
+   -------------------------------------------------------------------------- */
+#lien-he {
+	background: var(--color-surface);
+	padding: 2.25rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border);
+	box-shadow: var(--shadow-card);
+}
+
+.contact-form {
+	display: grid;
+	gap: 1.25rem;
+	margin-top: 1rem;
+}
+
+.contact-form p {
+	margin: 0;
+}
+
+.contact-form label {
+	display: inline-block;
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: var(--color-ink-primary);
+	margin-bottom: 0.4rem;
+	letter-spacing: 0.02em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+	width: 100%;
+	font-family: var(--font-body);
+	font-size: 0.98rem;
+	padding: 0.75rem 1rem;
+	border: 1.5px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	background: var(--color-surface-soft);
+	color: var(--color-ink-primary);
+	transition: var(--transition);
+	outline: none;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+	border-color: var(--color-accent);
+	background: #ffffff;
+	box-shadow: 0 0 0 4px var(--color-accent-light);
+}
+
+.contact-form textarea {
+	resize: vertical;
+	min-height: 110px;
+}
+
+.contact-form button[type="submit"] {
+	background: var(--color-ink-primary);
+	color: #ffffff;
+	border: none;
+	padding: 0.85rem 2rem;
+	font-family: var(--font-body);
+	font-size: 0.95rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	border-radius: var(--radius-sm);
+	cursor: pointer;
+	transition: var(--transition);
+	box-shadow: 0 4px 14px rgba(30, 36, 43, 0.2);
+}
+
+.contact-form button[type="submit"]:hover {
+	background: var(--color-accent);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 18px rgba(178, 88, 56, 0.35);
+}
+
+.contact-form button[type="submit"]:active {
+	transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   8. Sidebar (.sidebar)
+   -------------------------------------------------------------------------- */
+.sidebar {
+	background: var(--color-surface);
+	padding: 2rem 1.75rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border);
+	box-shadow: var(--shadow-card);
+	position: sticky;
+	top: 140px;
+}
+
+.sidebar h2 {
+	font-size: 1.35rem;
+	margin-bottom: 1.25rem;
+}
+
+.sidebar ul.recent {
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+	margin-bottom: 1.75rem;
+}
+
+.sidebar ul.recent li {
+	position: relative;
+	padding-left: 1.25rem;
+}
+
+.sidebar ul.recent li::before {
+	content: '›';
+	position: absolute;
+	left: 0;
+	top: -1px;
+	font-size: 1.2rem;
+	color: var(--color-accent);
+	font-weight: bold;
+}
+
+.sidebar ul.recent a {
+	color: var(--color-ink-primary);
+	font-size: 0.95rem;
+	font-weight: 500;
+	line-height: 1.5;
+	display: inline-block;
+}
+
+.sidebar ul.recent a:hover {
+	color: var(--color-accent);
+	transform: translateX(3px);
+}
+
+.sidebar p {
+	font-size: 0.92rem;
+	color: var(--color-ink-secondary);
+	padding-top: 1.25rem;
+	border-top: 1px dashed var(--color-border);
+}
+
+.sidebar p a {
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Footer (.site-footer)
+   -------------------------------------------------------------------------- */
+.site-footer {
+	background: var(--color-footer-bg);
+	color: var(--color-footer-text);
+	padding: 3.5rem 1.5rem 2rem;
+	margin-top: auto;
+	border-top: 3px solid var(--color-accent);
+}
+
+.footer-cols {
+	max-width: var(--container-max);
+	margin: 0 auto 2.5rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 2.25rem;
+}
+
+.footer-cols li h3 {
+	font-family: var(--font-subheading);
+	font-size: 1.15rem;
+	color: #ffffff;
+	margin-bottom: 0.85rem;
+	position: relative;
+	padding-bottom: 0.4rem;
+}
+
+.footer-cols li h3::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 28px;
+	height: 2px;
+	background: var(--color-accent);
+}
+
+.footer-cols li p {
+	font-size: 0.92rem;
+	color: var(--color-footer-muted);
+	line-height: 1.65;
+}
+
+.copyright {
+	text-align: center;
+	padding-top: 1.75rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	font-size: 0.85rem;
+	color: var(--color-footer-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive Design (Media Queries)
+   -------------------------------------------------------------------------- */
+/* Tablet & Màn hình vừa (<= 960px) */
+@media (max-width: 960px) {
+	.layout {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+		margin-top: 2rem;
+	}
+
+	.sidebar {
+		position: static;
+	}
+
+	.site-header {
+		position: static; /* bỏ sticky trên màn hình nhỏ để tăng không gian đọc */
+		padding: 1.5rem 1rem 1rem;
+	}
+}
+
+/* Màn hình điện thoại (<= 640px) */
+@media (max-width: 640px) {
+	.site-header .site-name {
+		font-size: 1.65rem;
+		letter-spacing: 0.1em;
+	}
+
+	.site-header .tagline {
+		font-size: 0.95rem;
+	}
+
+	.main-nav ul {
+		border-radius: var(--radius-sm);
+		gap: 0.25rem 1rem;
+		padding: 0.4rem 0.75rem;
+	}
+
+	.main-nav a {
+		font-size: 0.88rem;
+		padding: 0.3rem 0.5rem;
+	}
+
+	.layout {
+		padding: 0 1rem;
+		margin: 1.5rem auto 3rem;
+	}
+
+	#gioi-thieu, #lien-he, .sidebar {
+		padding: 1.5rem 1.25rem;
+	}
+
+	main h1 {
+		font-size: 1.75rem;
+	}
+
+	main h2, .sidebar h2 {
+		font-size: 1.4rem;
+	}
+
+	.value-list, .team-list, .footer-cols {
+		grid-template-columns: 1fr;
+	}
+
+	.contact-form button[type="submit"] {
+		width: 100%;
+	}
+}
