@@ -18,7 +18,10 @@
       --soft: #f8fafc;
       --code-bg: #0f172a;
       --code-text: #e2e8f0;
-      --ok: #10b981;
+      --blue: #0ea5e9;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #ef4444;
     }
     * { box-sizing: border-box; }
     body {
@@ -29,9 +32,9 @@
       line-height: 1.65;
       font-size: 15.5px;
     }
-    .page { max-width: 900px; margin: 0 auto; padding: 40px 16px 60px; }
+    .page { max-width: 920px; margin: 0 auto; padding: 40px 16px 60px; }
 
-    /* Header */
+    /* Cover */
     .cover {
       background: linear-gradient(135deg, var(--primary), var(--accent));
       color: #fff;
@@ -40,165 +43,100 @@
       box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
     }
     .cover .tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      background: rgba(255,255,255,.2);
-      padding: 4px 12px;
-      border-radius: 999px;
+      display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .8px;
+      text-transform: uppercase; background: rgba(255,255,255,.2); padding: 4px 12px; border-radius: 999px;
     }
     .cover h1 { margin: 14px 0 6px; font-size: 30px; line-height: 1.25; }
     .cover p { margin: 0; opacity: .9; }
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .meta div {
-      background: rgba(255,255,255,.14);
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-size: 14px;
-    }
+    .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 24px; }
+    .meta div { background: rgba(255,255,255,.14); border-radius: 12px; padding: 10px 14px; font-size: 14px; }
     .meta span { display: block; font-size: 11.5px; opacity: .8; text-transform: uppercase; letter-spacing: .5px; }
     .meta strong { font-weight: 600; }
     .cover-actions { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 999px;
-      transition: transform .15s;
-    }
+    .btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 14px; padding: 10px 20px; border-radius: 999px; transition: transform .15s; }
     .btn:hover { transform: translateY(-1px); }
     .btn-light { background: #fff; color: var(--primary-dark); }
     .btn-ghost { border: 1.5px solid rgba(255,255,255,.6); color: #fff; }
 
     /* TOC */
-    .toc {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 20px 24px;
-      margin: 24px 0;
-      box-shadow: 0 4px 16px rgba(15,23,42,.05);
-    }
+    .toc { background: var(--card); border-radius: 16px; padding: 20px 24px; margin: 24px 0; box-shadow: 0 4px 16px rgba(15,23,42,.05); }
     .toc h2 { margin: 0 0 8px; font-size: 16px; }
-    .toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 32px; }
+    .toc ol { margin: 0; padding-left: 20px; }
     .toc a { color: var(--primary-dark); text-decoration: none; }
     .toc a:hover { text-decoration: underline; }
 
     /* Sections */
-    section {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 26px 28px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 16px rgba(15,23,42,.05);
-    }
-    section h2 {
-      margin: 0 0 14px;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    section { background: var(--card); border-radius: 16px; padding: 26px 28px; margin-bottom: 20px; box-shadow: 0 4px 16px rgba(15,23,42,.05); }
+    section h2 { margin: 0 0 14px; font-size: 20px; display: flex; align-items: center; gap: 10px; }
     section h2 .num {
-      flex: none;
-      width: 30px; height: 30px;
-      border-radius: 9px;
-      background: #eef2ff;
-      color: var(--primary-dark);
-      font-size: 14px;
-      display: grid;
-      place-items: center;
+      flex: none; width: 30px; height: 30px; border-radius: 9px; background: #eef2ff;
+      color: var(--primary-dark); font-size: 14px; display: grid; place-items: center;
     }
-    section h3 { font-size: 16px; margin: 20px 0 8px; }
-    ul { padding-left: 20px; }
+    section h3 { font-size: 16px; margin: 22px 0 8px; }
+    ul, ol { padding-left: 20px; }
     li { margin-bottom: 4px; }
     code {
-      font-family: "JetBrains Mono", Consolas, monospace;
-      font-size: 13px;
-      background: #eef2ff;
-      color: var(--primary-dark);
-      padding: 1px 6px;
-      border-radius: 5px;
+      font-family: "JetBrains Mono", Consolas, monospace; font-size: 13px;
+      background: #eef2ff; color: var(--primary-dark); padding: 1px 6px; border-radius: 5px;
     }
     pre {
-      background: var(--code-bg);
-      color: var(--code-text);
-      border-radius: 12px;
-      padding: 16px 18px;
-      overflow-x: auto;
-      font-size: 13px;
-      line-height: 1.6;
-      margin: 10px 0 0;
+      background: var(--code-bg); color: var(--code-text); border-radius: 12px;
+      padding: 16px 18px; overflow-x: auto; font-size: 13px; line-height: 1.6; margin: 10px 0 0;
     }
     pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
-    .c { color: #64748b; }   /* comment */
-    .k { color: #c084fc; }   /* keyword */
-    .s { color: #86efac; }   /* string */
-    .f { color: #7dd3fc; }   /* function */
+    .c { color: #64748b; } .k { color: #c084fc; } .s { color: #86efac; } .f { color: #7dd3fc; }
+    .del { background: rgba(239,68,68,.18); display: inline-block; width: 100%; }
+    .add { background: rgba(16,185,129,.18); display: inline-block; width: 100%; }
 
-    table { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-top: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
     th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { background: var(--soft); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
-    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; }
-    .table-wrap table { margin: 0; }
+    th { background: var(--soft); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; margin-top: 10px; }
     .table-wrap tr:last-child td { border-bottom: none; }
+    .pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 9px; border-radius: 999px; white-space: nowrap; }
+    .pill-data { background: #e0f2fe; color: #0369a1; }
+    .pill-fn { background: #fef3c7; color: #b45309; }
 
-    /* Flow diagram */
-    .flow {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      align-items: center;
-      gap: 10px;
-      margin: 14px 0 4px;
+    .figure { border: 1px solid var(--border); border-radius: 14px; background: var(--soft); padding: 18px; margin-top: 12px; overflow-x: auto; }
+    .figure svg { display: block; width: 100%; height: auto; min-width: 620px; }
+    .caption { text-align: center; color: var(--muted); font-size: 13px; margin-top: 8px; }
+    .legend { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; font-size: 13px; color: var(--muted); margin-top: 10px; }
+    .legend i { display: inline-block; width: 22px; height: 0; border-top: 3px solid; vertical-align: middle; margin-right: 6px; }
+
+    .note { background: #eef2ff; border-left: 4px solid var(--primary); border-radius: 8px; padding: 12px 16px; margin-top: 14px; font-size: 14.5px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+    .compare > div { border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 14.5px; }
+    .compare h4 { margin: 0 0 6px; font-size: 14.5px; }
+    .compare .bad { border-color: #fecaca; background: #fef2f2; }
+    .compare .good { border-color: #a7f3d0; background: #ecfdf5; }
+    .compare ul { margin: 0; }
+
+    .bug { border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin-top: 16px; }
+    .bug h3 { margin: 0 0 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .badge { font-size: 11.5px; font-weight: 700; padding: 2px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: .4px; }
+    .badge-warn { background: #fef3c7; color: #b45309; }
+    .badge-err { background: #fee2e2; color: #b91c1c; }
+    .badge-logic { background: #ede9fe; color: #6d28d9; }
+    .console {
+      font-family: "JetBrains Mono", Consolas, monospace; font-size: 12.8px;
+      background: #fffbeb; border: 1px solid #fde68a; color: #92400e;
+      border-radius: 10px; padding: 10px 14px; overflow-x: auto; white-space: pre-wrap;
     }
-    .node {
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      padding: 12px;
-      text-align: center;
-      background: var(--soft);
-    }
-    .node strong { display: block; font-size: 14.5px; }
-    .node small { color: var(--muted); font-size: 12px; }
-    .node.app { border-color: var(--primary); background: #eef2ff; }
-    .arrow { color: var(--primary); font-weight: 700; font-size: 20px; text-align: center; }
-    .note {
-      background: #eef2ff;
-      border-left: 4px solid var(--primary);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin-top: 14px;
-      font-size: 14.5px;
-    }
-    .check { list-style: none; padding: 0; }
-    .check li { padding-left: 28px; position: relative; margin-bottom: 8px; }
-    .check li::before {
-      content: "✓";
-      position: absolute; left: 0; top: 1px;
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: #d1fae5; color: #047857;
-      font-size: 12px; font-weight: 700;
-      display: grid; place-items: center;
-    }
+    .console.err { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+    .bug dl { margin: 12px 0 0; display: grid; grid-template-columns: 110px 1fr; gap: 8px 14px; }
+    .bug dt { font-weight: 600; color: var(--muted); font-size: 14px; }
+    .bug dd { margin: 0; }
+
     footer { text-align: center; color: var(--muted); font-size: 13.5px; margin-top: 28px; }
     footer a { color: var(--primary-dark); }
 
     @media (max-width: 640px) {
       .cover { padding: 28px 20px; }
       .cover h1 { font-size: 24px; }
-      section { padding: 20px 18px; }
-      .toc ol { columns: 1; }
-      .flow { grid-template-columns: 1fr; }
-      .arrow { transform: rotate(90deg); }
+      section { padding: 20px 16px; }
+      .compare { grid-template-columns: 1fr; }
+      .bug dl { grid-template-columns: 1fr; gap: 2px; }
+      .bug dd { margin-bottom: 8px; }
     }
   </style>
 </head>
@@ -206,9 +144,9 @@
 <div class="page">
 
   <header class="cover">
-    <span class="tag">Báo cáo bài tập · Lập trình Web</span>
+    <span class="tag">Báo cáo kết quả bài tập · Lập trình Web</span>
     <h1>Ứng dụng Quản lý người dùng với React (CRUD)</h1>
-    <p>Xây dựng ứng dụng một trang bằng React 18 qua CDN: thêm, xem, sửa, xóa và tìm kiếm người dùng.</p>
+    <p>Ứng dụng React 18 chạy qua CDN: hiển thị, tìm kiếm, thêm, sửa, xóa người dùng lấy từ JSONPlaceholder API.</p>
     <div class="meta">
       <div><span>Sinh viên</span><strong>Phan Hoàng Vũ</strong></div>
       <div><span>MSSV</span><strong>20235462</strong></div>
@@ -222,200 +160,277 @@
   </header>
 
   <nav class="toc">
-    <h2>Nội dung</h2>
+    <h2>Nội dung báo cáo</h2>
     <ol>
-      <li><a href="#muc-tieu">Mục tiêu</a></li>
-      <li><a href="#cau-truc">Cấu trúc ứng dụng</a></li>
-      <li><a href="#luong-du-lieu">Luồng dữ liệu</a></li>
-      <li><a href="#read">Hiển thị &amp; tìm kiếm (Read)</a></li>
-      <li><a href="#create">Thêm người dùng (Create)</a></li>
-      <li><a href="#update">Sửa người dùng (Update)</a></li>
-      <li><a href="#delete">Xóa người dùng (Delete)</a></li>
-      <li><a href="#giao-dien">Giao diện &amp; modal</a></li>
-      <li><a href="#cai-tien">Cải tiến so với hướng dẫn</a></li>
-      <li><a href="#kiem-thu">Kiểm thử &amp; kết luận</a></li>
+      <li><a href="#cay-component">Sơ đồ Component (Component Tree)</a></li>
+      <li><a href="#state-lifting">Sơ đồ luồng dữ liệu (State Lifting)</a></li>
+      <li><a href="#props">Mô tả Props</a></li>
+      <li><a href="#loi">Các lỗi gặp phải và cách khắc phục</a></li>
     </ol>
   </nav>
 
-  <section id="muc-tieu">
-    <h2><span class="num">1</span>Mục tiêu</h2>
-    <ul>
-      <li>Tổ chức ứng dụng React thành nhiều <strong>Functional Component</strong>.</li>
-      <li>Dùng Hooks <code>useState</code>, <code>useEffect</code> để quản lý trạng thái và vòng đời.</li>
-      <li>Cài đặt đầy đủ mô hình <strong>CRUD</strong> trên dữ liệu lấy từ API <code>jsonplaceholder.typicode.com/users</code>.</li>
-      <li>Thực hành <strong>luồng dữ liệu một chiều</strong> và kỹ thuật <strong>State Lifting</strong>.</li>
-      <li>Thiết kế form thêm/sửa dạng modal, giao diện thân thiện, dùng được trên điện thoại.</li>
-    </ul>
+  <!-- ============ 1. COMPONENT TREE ============ -->
+  <section id="cay-component">
+    <h2><span class="num">1</span>Sơ đồ Component (Component Tree)</h2>
+    <p>Ứng dụng gồm 4 component. <strong>App</strong> là gốc, có 3 component con ngang hàng. Ngoài ra, các modal Thêm/Sửa không tách thành component riêng mà được render có điều kiện ngay bên trong <strong>AddUser</strong> và <strong>ResultTable</strong>.</p>
+
+    <div class="figure">
+      <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" font-family="Be Vietnam Pro, Arial, sans-serif" role="img" aria-label="Cây component: App có ba con SearchForm, AddUser, ResultTable">
+        <defs>
+          <linearGradient id="gApp" x1="0" x2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+        </defs>
+        <!-- root render -->
+        <text x="380" y="18" text-anchor="middle" font-size="12" fill="#64748b">ReactDOM.createRoot(#root).render(&lt;App /&gt;)</text>
+        <line x1="380" y1="26" x2="380" y2="44" stroke="#94a3b8" stroke-width="2"/>
+        <!-- App -->
+        <rect x="270" y="44" width="220" height="70" rx="14" fill="url(#gApp)"/>
+        <text x="380" y="72" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">App</text>
+        <text x="380" y="95" text-anchor="middle" font-size="12.5" fill="#fff" opacity=".9">state: kw, newUser</text>
+        <!-- connectors -->
+        <path d="M380 114 V140 M130 140 H630 M130 140 V166 M380 140 V166 M630 140 V166" stroke="#94a3b8" stroke-width="2" fill="none"/>
+        <!-- SearchForm -->
+        <rect x="30" y="166" width="200" height="70" rx="14" fill="#fff" stroke="#0ea5e9" stroke-width="2"/>
+        <text x="130" y="194" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">SearchForm</text>
+        <text x="130" y="216" text-anchor="middle" font-size="12" fill="#64748b">không có state</text>
+        <!-- AddUser -->
+        <rect x="280" y="166" width="200" height="70" rx="14" fill="#fff" stroke="#10b981" stroke-width="2"/>
+        <text x="380" y="194" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">AddUser</text>
+        <text x="380" y="216" text-anchor="middle" font-size="12" fill="#64748b">state: adding, user</text>
+        <!-- ResultTable -->
+        <rect x="530" y="166" width="200" height="70" rx="14" fill="#fff" stroke="#f59e0b" stroke-width="2"/>
+        <text x="630" y="194" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">ResultTable</text>
+        <text x="630" y="216" text-anchor="middle" font-size="12" fill="#64748b">state: users, loading, editing</text>
+        <!-- children elements -->
+        <path d="M130 236 V262" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+        <rect x="55" y="262" width="150" height="40" rx="10" fill="#f1f5f9" stroke="#cbd5e1"/>
+        <text x="130" y="287" text-anchor="middle" font-size="12.5" fill="#475569">&lt;input&gt; tìm kiếm</text>
+
+        <path d="M380 236 V262 M320 262 V262" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+        <rect x="290" y="262" width="180" height="40" rx="10" fill="#f1f5f9" stroke="#cbd5e1"/>
+        <text x="380" y="280" text-anchor="middle" font-size="12.5" fill="#475569">nút “+ Thêm”</text>
+        <text x="380" y="295" text-anchor="middle" font-size="12" fill="#64748b">+ Modal Thêm (khi adding)</text>
+
+        <path d="M630 236 V262" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+        <rect x="540" y="262" width="180" height="58" rx="10" fill="#f1f5f9" stroke="#cbd5e1"/>
+        <text x="630" y="282" text-anchor="middle" font-size="12.5" fill="#475569">&lt;table&gt; danh sách</text>
+        <text x="630" y="298" text-anchor="middle" font-size="12" fill="#64748b">nút Sửa / Xóa mỗi dòng</text>
+        <text x="630" y="313" text-anchor="middle" font-size="12" fill="#64748b">+ Modal Sửa (khi editing)</text>
+
+        <text x="380" y="350" text-anchor="middle" font-size="12" fill="#94a3b8">Khung liền: component · Khung xám nét đứt: phần tử JSX bên trong component</text>
+      </svg>
+    </div>
+    <p class="caption">Hình 1. Cây component của ứng dụng</p>
+
+<pre><code>App                      <span class="c">// state: kw, newUser</span>
+├── SearchForm           <span class="c">// props: onChangeValue</span>
+├── AddUser              <span class="c">// props: onAdd        | state: adding, user</span>
+│   └── (Modal Thêm)     <span class="c">// render khi adding === true</span>
+└── ResultTable          <span class="c">// props: keyword, user, onAdded | state: users, loading, editing</span>
+    ├── &lt;table&gt;          <span class="c">// filteredUsers.map(...)</span>
+    └── (Modal Sửa)      <span class="c">// render khi editing !== null</span></code></pre>
   </section>
 
-  <section id="cau-truc">
-    <h2><span class="num">2</span>Cấu trúc ứng dụng</h2>
-    <p>Toàn bộ ứng dụng nằm trong một file <code>react-crud.html</code>. React, ReactDOM và Babel được nạp qua CDN, mã JSX viết trong thẻ <code>&lt;script type="text/babel"&gt;</code> và render vào <code>&lt;div id="root"&gt;</code>.</p>
+  <!-- ============ 2. STATE LIFTING ============ -->
+  <section id="state-lifting">
+    <h2><span class="num">2</span>Sơ đồ luồng dữ liệu (State Lifting)</h2>
+
+    <div class="figure">
+      <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" font-family="Be Vietnam Pro, Arial, sans-serif" role="img" aria-label="Luồng dữ liệu: SearchForm và AddUser gửi dữ liệu lên App qua callback, App truyền xuống ResultTable qua props">
+        <defs>
+          <marker id="up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#ef4444"/></marker>
+          <marker id="down" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#6366f1"/></marker>
+          <linearGradient id="gApp2" x1="0" x2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+        </defs>
+        <!-- App -->
+        <rect x="250" y="20" width="260" height="84" rx="16" fill="url(#gApp2)"/>
+        <text x="380" y="50" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">App</text>
+        <text x="380" y="72" text-anchor="middle" font-size="13" fill="#fff">kw = ""</text>
+        <text x="380" y="91" text-anchor="middle" font-size="13" fill="#fff">newUser = null</text>
+
+        <!-- children -->
+        <rect x="20" y="226" width="200" height="66" rx="14" fill="#fff" stroke="#0ea5e9" stroke-width="2"/>
+        <text x="120" y="256" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">SearchForm</text>
+        <text x="120" y="277" text-anchor="middle" font-size="12" fill="#64748b">người dùng gõ từ khóa</text>
+
+        <rect x="280" y="226" width="200" height="66" rx="14" fill="#fff" stroke="#10b981" stroke-width="2"/>
+        <text x="380" y="256" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">AddUser</text>
+        <text x="380" y="277" text-anchor="middle" font-size="12" fill="#64748b">người dùng bấm “Thêm”</text>
+
+        <rect x="540" y="226" width="200" height="66" rx="14" fill="#fff" stroke="#f59e0b" stroke-width="2"/>
+        <text x="640" y="256" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">ResultTable</text>
+        <text x="640" y="277" text-anchor="middle" font-size="12" fill="#64748b">lọc + thêm vào bảng</text>
+
+        <!-- up arrows (callbacks) -->
+        <path d="M120 226 C120 160 200 120 262 104" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#up)"/>
+        <text x="96" y="158" font-size="12.5" fill="#b91c1c" font-weight="600">① onChangeValue(text)</text>
+        <text x="96" y="174" font-size="11.5" fill="#b91c1c">→ setKeyword</text>
+
+        <path d="M360 226 V112" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#up)"/>
+        <text x="268" y="160" font-size="12.5" fill="#b91c1c" font-weight="600" text-anchor="end">① onAdd(user)</text>
+        <text x="268" y="176" font-size="11.5" fill="#b91c1c" text-anchor="end">→ setNewUser</text>
+
+        <!-- down arrow (props) -->
+        <path d="M498 104 C580 120 640 160 640 218" stroke="#6366f1" stroke-width="2.5" fill="none" marker-end="url(#down)"/>
+        <text x="600" y="138" font-size="12.5" fill="#4338ca" font-weight="600">② keyword={kw}</text>
+        <text x="600" y="155" font-size="12.5" fill="#4338ca" font-weight="600">② user={newUser}</text>
+
+        <!-- reset arrow -->
+        <path d="M560 226 C520 190 470 150 418 112" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#up)"/>
+        <text x="470" y="210" font-size="12" fill="#b91c1c" text-anchor="middle">③ onAdded() → setNewUser(null)</text>
+      </svg>
+    </div>
+    <div class="legend">
+      <span><i style="border-color:#ef4444"></i>Dữ liệu đi lên (gọi hàm callback)</span>
+      <span><i style="border-color:#6366f1"></i>Dữ liệu đi xuống (props)</span>
+    </div>
+    <p class="caption">Hình 2. Luồng dữ liệu một chiều: con → App → con</p>
+
+    <h3>Diễn giải luồng</h3>
+    <ol>
+      <li><strong>Tìm kiếm:</strong> gõ vào ô tìm kiếm → SearchForm gọi <code>onChangeValue(e.target.value)</code>, chính là <code>setKeyword</code> của App → <code>kw</code> đổi, App render lại → ResultTable nhận <code>keyword</code> mới và lọc bằng <code>filter()</code>.</li>
+      <li><strong>Thêm:</strong> bấm “Thêm” trong modal → AddUser gọi <code>onAdd(user)</code>, tức <code>setNewUser</code> → App truyền <code>user={newUser}</code> cho ResultTable → <code>useEffect([user])</code> thêm người dùng vào <code>users</code>, rồi gọi <code>onAdded()</code> để App đặt <code>newUser</code> về <code>null</code>.</li>
+    </ol>
+
+    <h3>Vì sao <code>kw</code> và <code>newUser</code> đặt ở App, không đặt ở SearchForm hay AddUser?</h3>
+    <ul>
+      <li><strong>Dữ liệu chỉ đi từ cha xuống con.</strong> SearchForm, AddUser và ResultTable là ba component <em>anh em</em>. React không có cách nào để anh em đọc state của nhau. Nếu <code>kw</code> nằm trong SearchForm thì ResultTable không biết từ khóa là gì để lọc. Nếu <code>newUser</code> nằm trong AddUser thì ResultTable không nhận được người dùng mới.</li>
+      <li><strong>State phải đặt ở tổ tiên chung gần nhất</strong> của những component dùng nó. App vừa là cha của bên <em>tạo ra</em> dữ liệu (SearchForm, AddUser), vừa là cha của bên <em>dùng</em> dữ liệu (ResultTable). Đây chính là kỹ thuật <strong>State Lifting</strong> (nâng state lên).</li>
+      <li><strong>Component con chỉ nhận hàm cập nhật.</strong> App truyền <code>setKeyword</code>, <code>setNewUser</code> xuống. Con gọi hàm để báo cho App, còn giữ và thay đổi state là việc của App. Như vậy chỉ có <strong>một nguồn dữ liệu duy nhất</strong> (single source of truth), không có hai bản sao lệch nhau.</li>
+      <li><strong>Các component tách bạch, dễ tái sử dụng.</strong> SearchForm và AddUser không cần biết ai dùng dữ liệu của mình. Chúng chỉ gọi một callback, nên có thể đem sang dùng ở chỗ khác mà không phải sửa.</li>
+    </ul>
+
+    <div class="compare">
+      <div class="bad">
+        <h4>✗ Nếu đặt <code>kw</code> trong SearchForm</h4>
+        <ul>
+          <li>Ô tìm kiếm vẫn gõ được, nhưng bảng không lọc.</li>
+          <li>ResultTable không có cách nào lấy <code>kw</code>.</li>
+        </ul>
+      </div>
+      <div class="good">
+        <h4>✓ Đặt <code>kw</code> trong App</h4>
+        <ul>
+          <li>App nhận <code>kw</code> từ SearchForm qua callback.</li>
+          <li>App truyền <code>kw</code> xuống ResultTable bằng prop <code>keyword</code>.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">Ngược lại, những state chỉ một component dùng thì để luôn trong component đó: <code>adding</code> và <code>user</code> (nội dung form) trong AddUser, <code>users</code>, <code>loading</code>, <code>editing</code> trong ResultTable. Không nâng state lên cao hơn mức cần thiết.</div>
+  </section>
+
+  <!-- ============ 3. PROPS ============ -->
+  <section id="props">
+    <h2><span class="num">3</span>Mô tả Props</h2>
+    <p>Bảng các props App truyền xuống component con:</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Component</th><th>Vai trò</th><th>State / Props</th></tr></thead>
+        <thead>
+          <tr><th>Component nhận</th><th>Tên prop</th><th>Giá trị App truyền</th><th>Loại</th><th>Mục đích</th></tr>
+        </thead>
         <tbody>
-          <tr><td><strong>App</strong></td><td>Component gốc, giữ state dùng chung và truyền xuống con</td><td>state: <code>kw</code>, <code>newUser</code></td></tr>
-          <tr><td><strong>SearchForm</strong></td><td>Ô nhập từ khóa tìm kiếm</td><td>props: <code>onChangeValue</code></td></tr>
-          <tr><td><strong>AddUser</strong></td><td>Nút “+ Thêm” và modal form thêm người dùng</td><td>state: <code>adding</code>, <code>user</code><br>props: <code>onAdd</code></td></tr>
-          <tr><td><strong>ResultTable</strong></td><td>Tải dữ liệu, lọc, hiển thị bảng, sửa và xóa</td><td>state: <code>users</code>, <code>loading</code>, <code>editing</code><br>props: <code>keyword</code>, <code>user</code>, <code>onAdded</code></td></tr>
+          <tr>
+            <td><strong>SearchForm</strong></td>
+            <td><code>onChangeValue</code></td>
+            <td><code>setKeyword</code></td>
+            <td><span class="pill pill-fn">hàm</span></td>
+            <td>Gọi trong <code>onChange</code> của ô input để gửi từ khóa lên App.</td>
+          </tr>
+          <tr>
+            <td><strong>AddUser</strong></td>
+            <td><code>onAdd</code></td>
+            <td><code>setNewUser</code></td>
+            <td><span class="pill pill-fn">hàm</span></td>
+            <td>Gọi khi bấm “Thêm” hợp lệ để gửi đối tượng người dùng mới lên App.</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>ResultTable</strong></td>
+            <td><code>keyword</code></td>
+            <td><code>kw</code></td>
+            <td><span class="pill pill-data">string</span></td>
+            <td>Từ khóa để lọc danh sách theo name/username.</td>
+          </tr>
+          <tr>
+            <td><code>user</code></td>
+            <td><code>newUser</code></td>
+            <td><span class="pill pill-data">object | null</span></td>
+            <td>Người dùng mới cần thêm vào bảng. <code>useEffect</code> theo dõi prop này.</td>
+          </tr>
+          <tr>
+            <td><code>onAdded</code></td>
+            <td><code>() =&gt; setNewUser(null)</code></td>
+            <td><span class="pill pill-fn">hàm</span></td>
+            <td>Báo App đã thêm xong để đặt lại <code>newUser</code>, tránh thêm trùng.</td>
+          </tr>
         </tbody>
       </table>
     </div>
-<pre><code><span class="k">function</span> <span class="f">App</span>() {
-  <span class="k">const</span> [kw, setKeyword] = React.<span class="f">useState</span>(<span class="s">""</span>);
-  <span class="k">const</span> [newUser, setNewUser] = React.<span class="f">useState</span>(<span class="k">null</span>);
-  <span class="k">return</span> (
-    &lt;div className=<span class="s">"container"</span>&gt;
-      &lt;h1&gt;Quản lý người dùng&lt;/h1&gt;
-      &lt;div className=<span class="s">"toolbar"</span>&gt;
-        &lt;SearchForm onChangeValue={setKeyword} /&gt;
-        &lt;AddUser onAdd={setNewUser} /&gt;
-      &lt;/div&gt;
-      &lt;ResultTable keyword={kw} user={newUser} onAdded={() =&gt; <span class="f">setNewUser</span>(<span class="k">null</span>)} /&gt;
-    &lt;/div&gt;
-  );
-}</code></pre>
+<pre><code>&lt;SearchForm  onChangeValue={setKeyword} /&gt;
+&lt;AddUser     onAdd={setNewUser} /&gt;
+&lt;ResultTable keyword={kw} user={newUser} onAdded={() =&gt; <span class="f">setNewUser</span>(<span class="k">null</span>)} /&gt;</code></pre>
+    <div class="note">Quy ước: prop là <span class="pill pill-data">dữ liệu</span> thì đi xuống để hiển thị. Prop là <span class="pill pill-fn">hàm</span> (đặt tên bắt đầu bằng <code>on...</code>) thì dùng để con báo ngược lên cha. Con không bao giờ sửa trực tiếp prop nhận được.</div>
   </section>
 
-  <section id="luong-du-lieu">
-    <h2><span class="num">3</span>Luồng dữ liệu một chiều</h2>
-    <p>Hai component anh em (SearchForm, AddUser) không truyền dữ liệu trực tiếp cho ResultTable. Dữ liệu được <strong>đẩy lên App</strong> qua hàm callback, rồi App <strong>truyền xuống</strong> ResultTable qua props.</p>
-    <div class="flow">
-      <div class="node"><strong>SearchForm</strong><small>onChangeValue(text)</small></div>
-      <div class="arrow">→</div>
-      <div class="node app"><strong>App</strong><small>kw, newUser</small></div>
-      <div class="arrow">→</div>
-      <div class="node"><strong>ResultTable</strong><small>keyword, user</small></div>
+  <!-- ============ 4. BUGS ============ -->
+  <section id="loi">
+    <h2><span class="num">4</span>Các lỗi gặp phải và cách khắc phục</h2>
+    <p>Trong quá trình code theo tài liệu hướng dẫn, em gặp các lỗi sau (xem trong tab Console của DevTools, phím F12):</p>
+
+    <!-- Bug 1 -->
+    <div class="bug">
+      <h3><span class="badge badge-warn">Warning</span>Trùng <code>key</code> khi thêm người dùng sau khi xóa</h3>
+      <div class="console">Warning: Encountered two children with the same key, `10`. Keys should be unique so that components maintain their identity across updates.</div>
+      <dl>
+        <dt>Hiện tượng</dt>
+        <dd>Xóa một người (vd: id 3) rồi thêm người mới → bảng có <strong>hai dòng cùng ID 10</strong>. Bấm Sửa/Xóa dòng mới thì dòng cũ ID 10 cũng bị ảnh hưởng.</dd>
+        <dt>Nguyên nhân</dt>
+        <dd>Mã mẫu tạo id bằng <code>prev.length + 1</code>. Sau khi xóa, danh sách còn 9 phần tử nên id mới là 10, trùng với người có id 10 vẫn còn trong bảng. <code>key={u.id}</code> bị trùng, và <code>removeUser</code>/<code>saveUser</code> tìm theo id nên tác động lên cả hai dòng.</dd>
+        <dt>Cách sửa</dt>
+        <dd>Lấy id lớn nhất hiện có cộng 1.</dd>
+      </dl>
+<pre><code><span class="del"><span class="c">- </span>setUsers((prev) =&gt; [...prev, { ...user, id: prev.length + <span class="s">1</span> }]);</span>
+<span class="add"><span class="c">+ </span>setUsers((prev) =&gt; {</span>
+<span class="add"><span class="c">+ </span>  <span class="k">const</span> newId = prev.length &gt; <span class="s">0</span> ? Math.<span class="f">max</span>(...prev.<span class="f">map</span>((u) =&gt; u.id)) + <span class="s">1</span> : <span class="s">1</span>;</span>
+<span class="add"><span class="c">+ </span>  <span class="k">return</span> [...prev, { ...user, id: newId }];</span>
+<span class="add"><span class="c">+ </span>});</span></code></pre>
     </div>
-    <div class="flow">
-      <div class="node"><strong>AddUser</strong><small>onAdd(user)</small></div>
-      <div class="arrow">→</div>
-      <div class="node app"><strong>App</strong><small>setNewUser</small></div>
-      <div class="arrow">→</div>
-      <div class="node"><strong>ResultTable</strong><small>useEffect([user])</small></div>
+
+    <!-- Bug 2 -->
+    <div class="bug">
+      <h3><span class="badge badge-logic">Lỗi logic</span>Bấm “+ Thêm” nhưng modal không hiện ra</h3>
+      <dl>
+        <dt>Hiện tượng</dt>
+        <dd>Bấm nút “+ Thêm” thì không có gì xảy ra, không mở được form. Console không báo lỗi.</dd>
+        <dt>Nguyên nhân</dt>
+        <dd>Mã mẫu viết <code>onClick={setAdding(false)}</code> cho nút Hủy. Viết như vậy là <strong>gọi hàm ngay lúc render</strong> chứ không phải truyền hàm. Khi <code>adding</code> vừa thành <code>true</code>, React render modal, gặp dòng này liền gọi <code>setAdding(false)</code>, nên modal bị đóng ngay lập tức.</dd>
+        <dt>Cách sửa</dt>
+        <dd>Truyền một hàm vào <code>onClick</code>. Em viết thành hàm <code>handleCancel</code>, xóa luôn dữ liệu đang nhập dở.</dd>
+      </dl>
+<pre><code><span class="del"><span class="c">- </span>&lt;button onClick={<span class="f">setAdding</span>(<span class="k">false</span>)}&gt;Hủy&lt;/button&gt;</span>
+<span class="add"><span class="c">+ </span><span class="k">const</span> <span class="f">handleCancel</span> = () =&gt; { <span class="f">setUser</span>(<span class="f">emptyUser</span>()); <span class="f">setAdding</span>(<span class="k">false</span>); };</span>
+<span class="add"><span class="c">+ </span>&lt;button className=<span class="s">"btn-cancel"</span> onClick={handleCancel}&gt;Hủy&lt;/button&gt;</span></code></pre>
     </div>
-    <div class="note">Sau khi ResultTable thêm người dùng mới vào danh sách, nó gọi <code>onAdded()</code> để App đặt lại <code>newUser = null</code>. Nhờ vậy, nếu thêm tiếp một người có dữ liệu giống hệt, <code>useEffect</code> vẫn chạy lại.</div>
-  </section>
 
-  <section id="read">
-    <h2><span class="num">4</span>Hiển thị &amp; tìm kiếm (Read)</h2>
-    <h3>Tải dữ liệu một lần khi mount</h3>
-    <p><code>useEffect</code> với mảng phụ thuộc rỗng <code>[]</code> gọi API đúng một lần. Trong lúc chờ, bảng hiển thị “Đang tải dữ liệu...”. Nếu lỗi mạng, người dùng nhận được thông báo.</p>
-<pre><code>React.<span class="f">useEffect</span>(() =&gt; {
-  <span class="f">fetch</span>(<span class="s">"https://jsonplaceholder.typicode.com/users"</span>)
-    .<span class="f">then</span>((res) =&gt; res.<span class="f">json</span>())
-    .<span class="f">then</span>((data) =&gt; { <span class="f">setUsers</span>(data); <span class="f">setLoading</span>(<span class="k">false</span>); })
-    .<span class="f">catch</span>(() =&gt; { <span class="f">alert</span>(<span class="s">"Không tải được dữ liệu!"</span>); <span class="f">setLoading</span>(<span class="k">false</span>); });
-}, []);</code></pre>
-    <h3>Lọc theo từ khóa</h3>
-    <p>SearchForm gọi <code>onChangeValue</code> mỗi lần gõ phím. ResultTable dùng <code>Array.filter()</code> để lọc theo <em>name</em> hoặc <em>username</em>, không phân biệt hoa thường. Danh sách gốc không bị thay đổi, chỉ danh sách hiển thị được tính lại.</p>
-<pre><code><span class="k">const</span> kw = keyword.<span class="f">toLowerCase</span>();
-<span class="k">const</span> filteredUsers = users.<span class="f">filter</span>(
-  (u) =&gt; u.name.<span class="f">toLowerCase</span>().<span class="f">includes</span>(kw) ||
-         u.username.<span class="f">toLowerCase</span>().<span class="f">includes</span>(kw)
-);</code></pre>
-  </section>
+    <!-- Bug 4 -->
+    <div class="bug">
+      <h3><span class="badge badge-logic">Lỗi logic</span>Sửa trong form rồi bấm Hủy, dữ liệu trong bảng vẫn bị đổi</h3>
+      <dl>
+        <dt>Hiện tượng</dt>
+        <dd>Mở form Sửa, đổi City rồi bấm <strong>Hủy</strong>, nhưng cột Địa chỉ trong bảng vẫn hiện giá trị mới.</dd>
+        <dt>Nguyên nhân</dt>
+        <dd>Lần đầu em sao chép nông <code>setEditing({ ...u })</code>. Toán tử spread chỉ sao chép cấp 1, nên <code>editing.address</code> và <code>u.address</code> vẫn <strong>trỏ cùng một đối tượng</strong>. Sửa địa chỉ trong form là sửa luôn dữ liệu gốc trong bảng.</dd>
+        <dt>Cách sửa</dt>
+        <dd>Sao chép sâu cả đối tượng lồng <code>address</code>.</dd>
+      </dl>
+<pre><code><span class="del"><span class="c">- </span><span class="f">setEditing</span>({ ...u });</span>
+<span class="add"><span class="c">+ </span><span class="f">setEditing</span>({ ...u, address: { ...u.address } });</span></code></pre>
+    </div>
 
-  <section id="create">
-    <h2><span class="num">5</span>Thêm người dùng (Create)</h2>
+    <h3>Bài học rút ra</h3>
     <ul>
-      <li>Form là <strong>Controlled Component</strong>: mỗi input lấy <code>value</code> từ state và cập nhật qua <code>onChange</code>.</li>
-      <li>Các trường <code>street</code>, <code>suite</code>, <code>city</code> nằm trong đối tượng lồng <code>address</code>, nên phải dùng <strong>spread operator</strong> ở cả hai cấp để không mất dữ liệu cũ.</li>
-      <li>Bắt buộc nhập Name và Username (đã bỏ khoảng trắng thừa bằng <code>trim()</code>).</li>
+      <li><code>key</code> trong danh sách phải <strong>duy nhất và ổn định</strong>. Không suy ra id từ độ dài mảng.</li>
+      <li>Trong JSX, <code>onClick={fn}</code> là truyền hàm, còn <code>onClick={fn()}</code> là gọi hàm ngay. Cần đối số thì bọc lại: <code>onClick={() =&gt; fn(x)}</code>.</li>
+      <li>Không sửa trực tiếp state hoặc dữ liệu tham chiếu. Với đối tượng lồng nhau, phải sao chép từng cấp.</li>
     </ul>
-<pre><code><span class="k">const</span> <span class="f">handleChange</span> = (e) =&gt; {
-  <span class="k">const</span> { id, value } = e.target;
-  <span class="k">if</span> (ADDRESS_FIELDS.<span class="f">includes</span>(id)) {
-    <span class="f">setUser</span>({ ...user, address: { ...user.address, [id]: value } });
-  } <span class="k">else</span> {
-    <span class="f">setUser</span>({ ...user, [id]: value });
-  }
-};</code></pre>
-    <p>Trong ResultTable, một <code>useEffect</code> theo dõi prop <code>user</code> để thêm người mới vào danh sách:</p>
-<pre><code>React.<span class="f">useEffect</span>(() =&gt; {
-  <span class="k">if</span> (user) {
-    <span class="f">setUsers</span>((prev) =&gt; {
-      <span class="c">// id mới = id lớn nhất + 1, không bị trùng sau khi đã xóa</span>
-      <span class="k">const</span> newId = prev.length &gt; <span class="s">0</span> ? Math.<span class="f">max</span>(...prev.<span class="f">map</span>((u) =&gt; u.id)) + <span class="s">1</span> : <span class="s">1</span>;
-      <span class="k">return</span> [...prev, { ...user, id: newId }];
-    });
-    <span class="f">onAdded</span>();
-  }
-}, [user]);</code></pre>
-  </section>
-
-  <section id="update">
-    <h2><span class="num">6</span>Sửa người dùng (Update)</h2>
-    <p>Khi bấm <strong>Sửa</strong>, người dùng được <strong>sao chép sâu</strong> (deep copy) sang state <code>editing</code>. Nếu chỉ gán tham chiếu, việc gõ trong form sẽ sửa luôn đối tượng <code>address</code> gốc trong bảng, kể cả khi bấm Hủy.</p>
-<pre><code><span class="k">function</span> <span class="f">editUser</span>(u) {
-  <span class="f">setEditing</span>({ ...u, address: { ...u.address } });
-}
-
-<span class="k">function</span> <span class="f">saveUser</span>() {
-  <span class="k">if</span> (editing.name.<span class="f">trim</span>() === <span class="s">""</span> || editing.username.<span class="f">trim</span>() === <span class="s">""</span>) {
-    <span class="f">alert</span>(<span class="s">"Vui lòng nhập Name và Username!"</span>);
-    <span class="k">return</span>;
-  }
-  <span class="f">setUsers</span>((prev) =&gt; prev.<span class="f">map</span>((u) =&gt; (u.id === editing.id ? editing : u)));
-  <span class="f">setEditing</span>(<span class="k">null</span>);
-}</code></pre>
-    <p><code>Array.map()</code> tạo mảng mới, chỉ thay đúng phần tử có cùng <code>id</code>, nên React nhận ra state đã thay đổi và render lại.</p>
-  </section>
-
-  <section id="delete">
-    <h2><span class="num">7</span>Xóa người dùng (Delete)</h2>
-    <p>Người dùng bị xóa ngay khi bấm <strong>Xóa</strong>. <code>Array.filter()</code> tạo mảng mới không chứa phần tử cần xóa, vì React không cho sửa trực tiếp state.</p>
-<pre><code><span class="k">function</span> <span class="f">removeUser</span>(id) {
-  <span class="f">setUsers</span>((prev) =&gt; prev.<span class="f">filter</span>((u) =&gt; u.id !== id));
-}</code></pre>
-    <div class="note">Dạng cập nhật hàm <code>setUsers((prev) =&gt; ...)</code> luôn làm việc trên phiên bản <code>users</code> mới nhất, tránh lỗi khi nhiều lần cập nhật xảy ra liên tiếp.</div>
-  </section>
-
-  <section id="giao-dien">
-    <h2><span class="num">8</span>Giao diện &amp; modal form</h2>
-    <ul>
-      <li>Form thêm và sửa hiển thị trong <strong>modal</strong>: lớp phủ <code>.modal-overlay</code> (<code>position: fixed</code>, nền mờ <code>backdrop-filter: blur</code>) và hộp <code>.modal-content</code> chia lưới 2 cột.</li>
-      <li>Bảng nằm trong khung <code>overflow-x: auto</code>, cuộn ngang được trên màn hình nhỏ. Hàng được tô màu khi rê chuột.</li>
-      <li>Có màu riêng cho từng hành động: Thêm (gradient tím), Sửa (vàng), Xóa (đỏ), Lưu/Hủy.</li>
-      <li>Responsive: dưới 520px, modal chuyển về 1 cột.</li>
-      <li>Hiển thị “Không có người dùng nào” khi kết quả tìm kiếm rỗng.</li>
-    </ul>
-  </section>
-
-  <section id="cai-tien">
-    <h2><span class="num">9</span>Cải tiến so với mã hướng dẫn</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Vấn đề trong mã mẫu</th><th>Cách xử lý trong bài</th></tr></thead>
-        <tbody>
-          <tr><td>id mới = <code>prev.length + 1</code> có thể <strong>trùng id</strong> sau khi xóa (vd: xóa id 3 rồi thêm → id 10 bị trùng)</td><td>Dùng <code>Math.max(...ids) + 1</code></td></tr>
-          <tr><td><code>onClick={setAdding(false)}</code> gọi <code>setState</code> ngay trong lúc render, khiến modal vừa mở đã bị đóng</td><td>Viết thành hàm <code>handleCancel</code>, đồng thời xóa dữ liệu đang nhập dở</td></tr>
-          <tr><td>So sánh lỏng <code>u.id != id</code></td><td>So sánh chặt <code>!==</code></td></tr>
-          <tr><td>Không kiểm tra dữ liệu khi lưu bản sửa</td><td>Kiểm tra Name/Username (có <code>trim()</code>) cho cả Thêm và Sửa</td></tr>
-          <tr><td>Không xử lý lỗi khi gọi API</td><td>Thêm <code>.catch()</code> báo lỗi và tắt trạng thái loading</td></tr>
-          <tr><td>Viết lặp từng input cho mỗi form</td><td>Mảng cấu hình <code>FIELDS</code> dùng chung, render bằng <code>map</code>; hàm <code>getFieldValue</code> đọc cả trường lồng</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="kiem-thu">
-    <h2><span class="num">10</span>Kiểm thử &amp; kết luận</h2>
-    <h3>Kịch bản kiểm thử</h3>
-    <ul class="check">
-      <li>Tải trang: hiển thị 10 người dùng từ API.</li>
-      <li>Tìm kiếm “le” lọc đúng theo name/username, không phân biệt hoa thường; xóa từ khóa thì hiện lại toàn bộ.</li>
-      <li>Thêm người dùng hợp lệ: xuất hiện cuối bảng với id mới. Bỏ trống Name/Username thì bị cảnh báo.</li>
-      <li>Xóa một người rồi thêm mới: id không bị trùng.</li>
-      <li>Sửa rồi bấm Hủy: dữ liệu trong bảng giữ nguyên (deep copy hoạt động đúng).</li>
-      <li>Sửa rồi bấm Lưu: chỉ đúng dòng đó được cập nhật, kể cả các trường địa chỉ.</li>
-      <li>Xóa: dòng biến mất ngay, các dòng khác không bị ảnh hưởng.</li>
-      <li>Giao diện trên điện thoại: bảng cuộn ngang, modal 1 cột.</li>
-    </ul>
-    <h3>Kết luận</h3>
-    <p>Bài tập đã hoàn thành đầy đủ chức năng CRUD và tìm kiếm theo đúng mô hình luồng dữ liệu một chiều của React. Qua bài, em nắm được cách dùng <code>useState</code>, <code>useEffect</code>, kỹ thuật State Lifting, Controlled Components và nguyên tắc <strong>không sửa trực tiếp state</strong> (luôn tạo đối tượng/mảng mới bằng spread, <code>map</code>, <code>filter</code>).</p>
-    <p><strong>Hạn chế:</strong> dữ liệu chỉ lưu trong bộ nhớ trình duyệt, tải lại trang sẽ mất các thay đổi, vì JSONPlaceholder không lưu thật. Hướng phát triển: lưu vào <code>localStorage</code> hoặc gọi API POST/PUT/DELETE tới một backend thật.</p>
   </section>
 
   <footer>
